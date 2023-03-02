@@ -1,3 +1,3 @@
 #!/bin/sh
-echo "hello world $0"
+echo "hello world $1"
 
