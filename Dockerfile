@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:N.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/aspnet:IMAGE_NO AS base
 
 RUN addgroup --gid 1737 -S dotnet && adduser --uid 1737 -S dotnet -G dotnet \
   && apk add --no-cache dumb-init
