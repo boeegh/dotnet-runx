@@ -14,7 +14,19 @@ jobs:
   docker:
     strategy:
       matrix:
-        image: ["6.0", "7.0"]
+        image:
+          [
+            "6.0",
+            "6.0-alpine",
+            "6.0-bullseye-slim",
+            "7.0",
+            "7.0-alpine",
+            "7.0-bullseye-slim",
+            "latest",
+            "8.0-preview",
+            "8.0-preview-alpine",
+            "8.0-preview-jammy",
+          ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
