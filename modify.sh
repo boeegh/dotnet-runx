@@ -11,7 +11,7 @@ for fn in ${files[@]}; do
     cp -f "$fn" "$fn.bak"
   fi
 
-  sed -i "" "s/$IMAGE_VERSION_MARKER/$IMAGE_SET_VERSION/" "$fn"
+  sed -i "s/$IMAGE_VERSION_MARKER/$IMAGE_SET_VERSION/" "$fn"
 
   if [[ $2 == "--dev" ]]; then
     docker build --progress plain --no-cache -t boeegh/dotnet-runx:dev . || echo "Docker build failed."
