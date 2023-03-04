@@ -11,7 +11,11 @@ for fn in ${files[@]}; do
     cp -f "$fn" "$fn.bak"
   fi
 
-  sed -i "s/$IMAGE_VERSION_MARKER/$IMAGE_SET_VERSION/" "$fn"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i "" "s/$IMAGE_VERSION_MARKER/$IMAGE_SET_VERSION/" "$fn" || echo "Modify failed."
+  else
+    sed -i "s/$IMAGE_VERSION_MARKER/$IMAGE_SET_VERSION/" "$fn"
+  fi
 
   if [[ $2 == "--dev" ]]; then
     docker build --progress plain --no-cache -t boeegh/dotnet-runx:dev . || echo "Docker build failed."
