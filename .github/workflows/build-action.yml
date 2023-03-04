@@ -12,7 +12,7 @@ on:
 
 jobs:
   docker:
-    continue-on-error: ${{ matrix.image }}
+    continue-on-error: true
     strategy:
       matrix:
         image:
